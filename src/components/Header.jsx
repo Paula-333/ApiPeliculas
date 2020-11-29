@@ -9,7 +9,6 @@ const Header = (props) => {
     return (
         <header className="header">
             <NavLink to="/" className="home1">Home</NavLink>
-            <NavLink to="/peliculas" className="peliculas">Películas</NavLink>
 
             {props.user ?
                     <>

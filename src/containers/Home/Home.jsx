@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import './Home.css'
 import axios from 'axios';
 
@@ -55,15 +55,31 @@ class Home extends Component {
         this.props.history.push('/peliculaDescripcion');
         localStorage.setItem('datosPelicula', JSON.stringify(pelicula));
     }
+   
+    nextPage = () =>{
+        this.setState(prevState=>({page:prevState.page+1}));
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES&page=${this.state.page}`)
+        .then((api)=>{this.setState({peliculas: api.data.results})})
+        .catch(err=> console.log(err))
 
+       
+    }
     
+    backPage = () => {
+        this.setState(prevState=>({page:prevState.page-1}));
+        
+    }
     
     render() {
         return(
-            <div> 
-                <img src={foto.photo} alt="cinema" className="foto"/> 
+            <Fragment > 
+               <div> <img src={foto.photo} alt="cinema" className="foto"/></div> 
                 <div className="movies" >{this.mostrarPeliculas()}</div>
-             </div>
+                <div className="div-movies">
+                <button className="anterior" onClick={()=> this.backPage}>ANTERIOR</button>
+                <button className="siguiente" onClick={()=> this.nextPage}>SIGUIENTE</button>
+                </div>
+             </Fragment>
         );
     };
     
