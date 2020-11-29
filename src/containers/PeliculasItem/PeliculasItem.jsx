@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
+import './PeliculasItem.css';
 
 
 class PeliculasItem extends React.Component {
@@ -26,7 +27,7 @@ class PeliculasItem extends React.Component {
     datosPeli(){
         if(this.state.peliculaEs?.id){
             return(
-                <div className="movie">
+                <div className="peli">
                      
                     <img alt={this.state.peliculaEs.title} src={this.state.peliculaEs.poster_path}></img>
                     <div className="titulo"> {this.state.peliculaEs.title} </div>
@@ -45,9 +46,9 @@ class PeliculasItem extends React.Component {
     
     render() {
         return(
-            <div>
+            <div className="movie">
                 {this.datosPeli()}
-                <button onClick={()=>this.goBack()}>ATRAS</button>
+                <button className="atras" onClick={()=>this.goBack()}>ATRAS</button>
             </div>
         );
     };
