@@ -21,7 +21,8 @@ class Home extends Component {
     async componentDidMount(){
         
         try {
-            const resultados = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES&page=${this.state.page}`);
+            const resultados = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES&page=$
+            `);
             console.log(resultados.data.results);
             this.setState({peliculas: resultados.data.results})
         }catch (err){
@@ -40,7 +41,7 @@ class Home extends Component {
                     return(
                         <div className="movies2" key={pelicula.id}>
                             
-                            <img alt={pelicula.title} src={`https://image.tmdb.org/t/p/w300${pelicula.poster_path}`} onClick={()=>this.selecionarPelicula(pelicula)}></img>
+                            <img alt={pelicula.title} src={'https://image.tmdb.org/t/p/w300${pelicula.poster_path}'} onClick={()=>this.selecionarPelicula(pelicula)}></img>
                         </div>
                     
                     )

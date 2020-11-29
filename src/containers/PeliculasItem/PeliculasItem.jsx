@@ -9,14 +9,14 @@ class PeliculasItem extends React.Component {
         super(props);
         
         this.state = {
-            peliculaEs: {}
+            pelicula: {}
         }
     };
 
     componentDidMount(){
         let res = JSON.parse(localStorage.getItem('datosPelicula'));
 
-        this.setState({peliculaEs:res});
+        this.setState({pelicula:res});
 
     }
 
@@ -25,13 +25,13 @@ class PeliculasItem extends React.Component {
     }
 
     datosPeli(){
-        if(this.state.peliculaEs?.id){
+        if(this.state.pelicula?.id){
             return(
                 <div className="peli">
                      
-                    <img alt={this.state.peliculaEs.title} src={this.state.peliculaEs.poster_path}></img>
-                    <div className="titulo"> {this.state.peliculaEs.title} </div>
-                    <div className="descripcion"> {this.state.peliculaEs.overview} </div>
+                    <img alt={this.state.pelicula.title} src={this.state.pelicula.poster_path}></img>
+                    <div className="titulo"> {this.state.pelicula.title} </div>
+                    <div className="descripcion"> {this.state.pelicula.overview} </div>
                         
                         
                 </div>
