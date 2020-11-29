@@ -49,7 +49,7 @@ class Peliculas extends Component {
     selecionarPelicula(pelicula){
         
         this.props.history.push('/peliculasItem');
-        localStorage.setItem('datosPersonaje', JSON.stringify(pelicula));
+        localStorage.setItem('datosPelicula', JSON.stringify(pelicula));
     }
 
     

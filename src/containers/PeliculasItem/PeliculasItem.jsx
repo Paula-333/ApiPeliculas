@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 
 
@@ -14,7 +15,7 @@ class PeliculasItem extends React.Component {
     componentDidMount(){
         let res = JSON.parse(localStorage.getItem('datosPelicula'));
 
-        this.setState({peliculaEs : res});
+        this.setState({peliculaEs:res});
 
     }
 
@@ -22,28 +23,31 @@ class PeliculasItem extends React.Component {
         this.props.history.push('/');
     }
 
-    muestraDatos(){
-        if(this.state.personajeEscogido?.id){
+    datosPeli(){
+        if(this.state.peliculaEs?.id){
             return(
-                <div>
-                    <div>Nombre: {this.state.peliculaEs.name}</div>
-                    <div>Species: {this.state.peliculaEs.species}</div>
-                    <div><img src={this.state.peliculaEs.image}></img></div>
+                <div className="movie">
+                     
+                    <img alt={this.state.peliculaEs.title} src={this.state.peliculaEs.poster_path}></img>
+                    <div className="titulo"> {this.state.peliculaEs.title} </div>
+                    <div className="descripcion"> {this.state.peliculaEs.overview} </div>
+                        
+                        
                 </div>
             )
         }else{
             return(
-                <div>CARGANDO LOS DATOS DEL PERSONAJE</div>
+                <div>CARGANDO LOS DATOS...</div>
             )
         }
-        // console.log(this.state.personajeEscogido.id);
+       
     }
     
     render() {
         return(
             <div>
-                {this.muestraDatos()}
-                <button onClick={()=>this.goBack()}>VOLVER A VISTA DE PERSONAJES</button>
+                {this.datosPeli()}
+                <button onClick={()=>this.goBack()}>ATRAS</button>
             </div>
         );
     };
