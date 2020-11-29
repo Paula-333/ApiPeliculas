@@ -15,7 +15,7 @@ const Login = (props) => {
             localStorage.setItem('token',res.data.token)
             
             props.setUser(res.data.user)
-            history.push('/')
+            history.push('/peliculas')
         } catch (error) {
             console.log('ERROR')
            

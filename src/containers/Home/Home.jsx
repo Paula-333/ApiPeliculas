@@ -4,14 +4,14 @@ import './Home.css'
 const Home = (props) =>{
 
     //const titulo = "WELCOME!";
-    let foto = {photo:'./Neon.jpg'}
+    let foto = {photo:'./cinema.jpg'}
 
    
     
    
         return(
             <div className="Home">
-                <img src={foto.photo} alt="Dientes" className="foto"/> 
+                <img src={foto.photo} alt="cinema" className="foto"/> 
             </div>
         );
     
