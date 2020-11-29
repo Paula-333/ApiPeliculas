@@ -29,9 +29,11 @@ class PeliculasItem extends React.Component {
             return(
                 <div className="peli">
                      
-                    <img alt={this.state.pelicula.title} src={this.state.pelicula.poster_path}></img>
+                    <img className="imagen" alt={this.state.pelicula.title} src= { `https://image.tmdb.org/t/p/w300${this.state.pelicula.poster_path}`}  ></img>
                     <div className="titulo"> {this.state.pelicula.title} </div>
+                    <div className="Fecha"><p>Fecha de estreno: {this.state.pelicula.release_date} </p></div>
                     <div className="descripcion"> {this.state.pelicula.overview} </div>
+                 
                         
                         
                 </div>

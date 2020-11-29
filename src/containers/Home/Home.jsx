@@ -21,12 +21,13 @@ class Home extends Component {
     async componentDidMount(){
         
         try {
-            const peliculas = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=479c2920a277283ba2e63633bbcc98d6');
+            const peliculas = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=3e62fb2a0d94f7fd5ade1348729a33cf&language=es-ES&page=${this.state.page}`);
             console.log(peliculas.data.results);
             this.setState({peliculas: peliculas.data.results})
         }catch (err){
             console.log(err);
         }
+        
         
         
     }
@@ -57,17 +58,18 @@ class Home extends Component {
     }
    
     nextPage = () =>{
-        this.setState(prevState=>({page:prevState.page+1}));
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES&page=${this.state.page}`)
-        .then((api)=>{this.setState({peliculas: api.data.results})})
-        .catch(err=> console.log(err))
+        this.setState(prevState => ({page: prevState.page + 1}), ()=>{
+            this.componentDidMount(this.state.page)  
+        })    
+   
 
        
     }
     
     backPage = () => {
-        this.setState(prevState=>({page:prevState.page-1}));
-        
+        this.setState(prevState => ({page: prevState.page - 1}), ()=>{
+            this.componentDidMount(this.state.page)  
+        })    
     }
     
     render() {
@@ -76,8 +78,8 @@ class Home extends Component {
                <div> <img src={foto.photo} alt="cinema" className="foto"/></div> 
                 <div className="movies" >{this.mostrarPeliculas()}</div>
                 <div className="div-movies">
-                <button className="anterior" onClick={()=> this.backPage}>ANTERIOR</button>
-                <button className="siguiente" onClick={()=> this.nextPage}>SIGUIENTE</button>
+                <button className="anterior" onClick={()=> this.backPage()}>ANTERIOR</button>
+                <button className="siguiente" onClick={()=> this.nextPage()}>SIGUIENTE</button>
                 </div>
              </Fragment>
         );

@@ -10,8 +10,14 @@
     align-items: center;
     flex-direction: column;
 }
+.imagen{
+  padding: 2em;
+}
 .titulo{
   color: #7c4dff;
+  font-size: large;
+  font-weight: bold;
+  padding: 1em;
 }
 .descripcion{
   color: #7c4dff;
@@ -19,11 +25,16 @@
   width: 30em;
 
 }
+.Fecha{
+  color: #7c4dff;
+  padding: 1em;
+  
+}
 .atras{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5em;
+    margin-top: 3em;
     padding:.4rem 1rem;
     border: 1px solid;
     border-radius: 4px;
