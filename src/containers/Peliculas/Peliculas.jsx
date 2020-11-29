@@ -8,7 +8,8 @@ class Peliculas extends Component {
         super(props);
 
         this.state = {
-            peliculas : []
+            peliculas : [],
+            page: 1
         }
         
     };
@@ -16,7 +17,7 @@ class Peliculas extends Component {
     async componentDidMount(){
         
         try {
-            const resultados = await axios.get('https://developers.themoviedb.org/3/movies/get-popular-movies');
+            const resultados = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b5138e06a3a9125b8c326498bbeae997&language=es-ES&page=${this.state.page}`);
             console.log(resultados.data.results);
             this.setState({peliculas: resultados.data.results})
         }catch (err){
@@ -26,31 +27,26 @@ class Peliculas extends Component {
         
     }
 
-    muestraResultados(){
+    mostrarPeliculas(){
 
         if(this.state.peliculas[0]){
-
             return(
                 this.state.peliculas.map(pelicula => {
+                    console.log(pelicula.title)
                     return(
-                        <div className="personaje" key={pelicula.id}>
-                            {pelicula.name}
-                            <img onClick={()=>this.clickElementoSeleccionado(pelicula)} alt={pelicula.name} src={pelicula.image}></img>
-                            {pelicula.species}
+                        <div className="Peliculas" key={pelicula.id}>
+                            {pelicula.title}
+                            <img alt={pelicula.title} src={`https://image.tmdb.org/t/p/w300${pelicula.poster_path}`} onClick={()=>this.selecionarPelicula(pelicula)}></img>
                         </div>
+                    
                     )
-                })
-            )
-
+                }))         
         }else{
-            return(
-                <div>CARGANDO LOS DATOS.</div>
-                )
-        }
-        
+            return(<div>CARGANDO LOS DATOS.</div>)
+        }   
     }
-
-    clickElementoSeleccionado(pelicula){
+    
+    selecionarPelicula(pelicula){
         
         this.props.history.push('/peliculasItem');
         localStorage.setItem('datosPersonaje', JSON.stringify(pelicula));
@@ -60,9 +56,9 @@ class Peliculas extends Component {
     
     render() {
         return(
-            <div className="pelis">
-                {this.muestraResultados()}
-            </div>
+            <div> 
+                 <div className="movies" >{this.mostrarPeliculas()}</div>
+             </div>
         );
     };
     

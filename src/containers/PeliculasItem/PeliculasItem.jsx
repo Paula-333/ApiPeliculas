@@ -12,9 +12,9 @@ class PeliculasItem extends React.Component {
     };
 
     componentDidMount(){
-        let resultado = JSON.parse(localStorage.getItem('datosPelicula'));
+        let res = JSON.parse(localStorage.getItem('datosPelicula'));
 
-        this.setState({peliculaEs : resultado});
+        this.setState({peliculaEs : res});
 
     }
 
