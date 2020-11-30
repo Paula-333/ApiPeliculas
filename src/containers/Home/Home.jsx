@@ -2,7 +2,7 @@ import React, {Component, Fragment} from "react";
 import './Home.css'
 import axios from 'axios';
 
-let foto = {photo:'./cinema.jpg'}
+let foto = {photo:'./cinemaOpen.jpeg'}
 
 
 
