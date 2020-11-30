@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, {Component} from "react";
 import './PeliculasItem.css';
 
 
-class PeliculasItem extends React.Component {
+class PeliculasItem extends Component {
     
     constructor (props) {
         super(props);

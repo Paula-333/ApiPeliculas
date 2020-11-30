@@ -2,7 +2,10 @@ import React, {Component, Fragment} from "react";
 import './Home.css'
 import axios from 'axios';
 
-let foto = {photo:'./cinemaOpen.jpeg'}
+//import PeliculasItem from '../../components/PeliculasItem/PeliculasItem';
+//import PageWithLoader from '../../components/PageWithLoader/PageWithLoader';
+
+let foto = {photo:'./movieTime.jpg'}
 
 
 
@@ -13,7 +16,9 @@ class Home extends Component {
 
         this.state = {
             peliculas : [],
-            page: 1
+            search: [],
+            page: 1,
+            text:''
         }
         
     };

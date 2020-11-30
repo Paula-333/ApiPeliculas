@@ -1,7 +1,7 @@
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Header from './components/Header';
-import PeliculasItem from './containers/PeliculasItem/PeliculasItem'
+import Header from './components/Header/Header'
+import PeliculasItem from './components/PeliculasItem/PeliculasItem'
 import Register from './containers/Register/Register';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login'
