@@ -11,6 +11,7 @@ const Header = (props) => {
     return (
         <header className="header">
             <NavLink to="/" className="home1">Home</NavLink>
+            
 
             {props.user ?
                     <>
@@ -20,8 +21,10 @@ const Header = (props) => {
                         
                     </> :
                     <>
+                        <div className="divi" >
                         <NavLink to="/login" className="login1">Log in</NavLink>
                         <NavLink to="/register" className="register1">Register</NavLink>
+                        </div>
                     </>
                     
                 }

@@ -10,6 +10,8 @@ import axios from 'axios';
 
 
 
+
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -26,6 +28,7 @@ function App() {
       <Header user={user} setUser={setUser}/>
       <Switch>
         <Route path="/" component={Home} exact/>
+        
         <Route path="/peliculaDescripcion" exact component={PeliculasItem} />
         <Route path="/register" component={Register} exact/>
         <Route path="/login" children={<Login user={user} setUser={setUser}/>} 

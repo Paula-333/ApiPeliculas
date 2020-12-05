@@ -16,11 +16,11 @@ const Register = () => {
                 email: form.email.value,
                 password: form.password.value,
             }
-            await axios.post( user)
-            
+            await axios.post('https://heroku-moviesbackend.herokuapp.com/user/createUser', user)
+            console.log({message: 'Registrado'})
             history.push('/login')
         } catch (error) {
-            console.log('ERROR')
+            console.log({message: 'ERROR'})
            
         }
 

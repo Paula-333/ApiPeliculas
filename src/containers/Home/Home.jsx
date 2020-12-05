@@ -1,27 +1,30 @@
 import React, {Component, Fragment} from "react";
-import './Home.css'
+import './Home.css';
 import axios from 'axios';
+import FormSearch from "../../Components/Buscar/Buscador";
 
-//import PeliculasItem from '../../components/PeliculasItem/PeliculasItem';
-//import PageWithLoader from '../../components/PageWithLoader/PageWithLoader';
+
+
+
 
 let foto = {photo:'./movieTime.jpg'}
 
 
 
 class Home extends Component {
-    
     constructor (props) {
         super(props);
 
         this.state = {
             peliculas : [],
-            search: [],
             page: 1,
-            text:''
+            text:'',
+            dataResults: [],
+            hideText: false,
         }
         
     };
+    
 
     async componentDidMount(){
         
@@ -42,7 +45,7 @@ class Home extends Component {
         if(this.state.peliculas[0]){
             return(
                 this.state.peliculas.map(pelicula => {
-                    console.log(pelicula.title)
+                    
                     return(
                         <div className="movies2" key={pelicula.id}>
                             
@@ -55,13 +58,16 @@ class Home extends Component {
             return(<div>¡CARGANDO PELICULAS!</div>)
         }   
     }
-    
+
+
     selecionarPelicula(pelicula){
         
         this.props.history.push('/peliculaDescripcion');
         localStorage.setItem('datosPelicula', JSON.stringify(pelicula));
-    }
-   
+    };
+
+
+
     nextPage = () =>{
         this.setState(prevState => ({page: prevState.page + 1}), ()=>{
             this.componentDidMount(this.state.page)  
@@ -69,19 +75,32 @@ class Home extends Component {
    
 
        
-    }
+    };
     
     backPage = () => {
         this.setState(prevState => ({page: prevState.page - 1}), ()=>{
             this.componentDidMount(this.state.page)  
         })    
-    }
+    };
+
+    //Obtengo los datos de FormSearch para pasarle el estado a Results
+    getDatosResults = datos => {
+        //obtengo los datos de FormSeach en el fetch
+        const dataResults =  datos 
+        
+            this.setState({
+                dataResults,
+                hideText: true
+            })
+        }
+
     
     render() {
         return(
-            <Fragment > 
+            <Fragment> 
                <div> <img src={foto.photo} alt="cinema" className="foto"/></div> 
-                <div className="movies" >{this.mostrarPeliculas()}</div>
+               <FormSearch getDatosResults={this.getDatosResults}/>
+               <div className="movies" >{this.mostrarPeliculas()}</div>
                 <div className="div-movies">
                 <button className="anterior" onClick={()=> this.backPage()}>ANTERIOR</button>
                 <button className="siguiente" onClick={()=> this.nextPage()}>SIGUIENTE</button>
@@ -91,7 +110,6 @@ class Home extends Component {
     };
     
     
-};
+}
 
-
-export default Home;
+ export default Home;

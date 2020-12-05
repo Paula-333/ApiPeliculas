@@ -11,7 +11,7 @@ const Login = (props) => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const res = await axios.post( {email,password})
+            const res = await axios.get('https://heroku-moviesbackend.herokuapp.com/user/login', {email,password})
             localStorage.setItem('token',res.data.token)
             
             props.setUser(res.data.user)
