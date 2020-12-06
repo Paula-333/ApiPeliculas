@@ -1,7 +1,7 @@
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Header from './components/Header/Header'
-import PeliculasItem from './components/PeliculasItem/PeliculasItem'
+import Header from './Components/Header/Header'
+import PeliculasItem from './Components/PeliculasItem/PeliculasItem'
 import Register from './containers/Register/Register';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login'
@@ -30,6 +30,7 @@ function App() {
         <Route path="/" component={Home} exact/>
         
         <Route path="/peliculaDescripcion" exact component={PeliculasItem} />
+        <Route path="/peliculaDescripcion1" exact component={PeliculasItem} />
         <Route path="/register" component={Register} exact/>
         <Route path="/login" children={<Login user={user} setUser={setUser}/>} 
         exact/>

@@ -35,7 +35,7 @@ class FormSearch extends Component {
          }
         
         // realizo el fetch para obtener la api con el resultado
-        const apiUrl =`https://api.themoviedb.org/3/movie/popular?api_key=3e62fb2a0d94f7fd5ade1348729a33cf&language=es-ES&query=${valueState}`;
+        const apiUrl =`https://api.themoviedb.org/3/search/movie?api_key=3e62fb2a0d94f7fd5ade1348729a33cf&language=es-ES&query=${valueState}`;
 
         const miInit = { method: 'GET'};
 
@@ -92,8 +92,5 @@ class FormSearch extends Component {
 }
 
 export default FormSearch;
-
-
-
 
 

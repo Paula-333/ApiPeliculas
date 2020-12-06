@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-constructor */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/alt-text */
 import React, {Component} from "react";
 import './PeliculasItem.css';

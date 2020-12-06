@@ -1,3 +1,4 @@
+
 import React, {Component, Fragment} from "react";
 import './Home.css';
 import axios from 'axios';
@@ -66,6 +67,12 @@ class Home extends Component {
         localStorage.setItem('datosPelicula', JSON.stringify(pelicula));
     };
 
+    irPelicula(datos){
+        localStorage.setItem('datosPelicula', JSON.stringify(datos));
+        this.props.history.push('/peliculaDescripcion1');
+
+    };
+
 
 
     nextPage = () =>{
@@ -87,11 +94,12 @@ class Home extends Component {
     getDatosResults = datos => {
         //obtengo los datos de FormSeach en el fetch
         const dataResults =  datos 
-        
             this.setState({
                 dataResults,
                 hideText: true
             })
+        this.irPelicula(datos);
+
         }
 
     
@@ -99,12 +107,13 @@ class Home extends Component {
         return(
             <Fragment> 
                <div> <img src={foto.photo} alt="cinema" className="foto"/></div> 
-               <FormSearch getDatosResults={this.getDatosResults}/>
-               <div className="movies" >{this.mostrarPeliculas()}</div>
-                <div className="div-movies">
+                 <FormSearch getDatosResults={this.getDatosResults}/>
+               <div className="div-movies">
                 <button className="anterior" onClick={()=> this.backPage()}>ANTERIOR</button>
                 <button className="siguiente" onClick={()=> this.nextPage()}>SIGUIENTE</button>
                 </div>
+               <div className="movies" >{this.mostrarPeliculas()}</div>
+                
              </Fragment>
         );
     };

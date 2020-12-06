@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 
 const Register = () => {
-
+    
     const history = useHistory();
     const handleSubmit = async (event) => {
         try {
@@ -16,12 +16,11 @@ const Register = () => {
                 email: form.email.value,
                 password: form.password.value,
             }
-            await axios.post('https://heroku-moviesbackend.herokuapp.com/user/createUser', user)
+            await axios.post('https://heroku-moviesbackend.herokuapp.com/user/createUser',user)
             console.log({message: 'Registrado'})
             history.push('/login')
         } catch (error) {
             console.log({message: 'ERROR'})
-           
         }
 
     }

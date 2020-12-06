@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+
 import './Header.css'
 
 
@@ -11,7 +12,6 @@ const Header = (props) => {
     return (
         <header className="header">
             <NavLink to="/" className="home1">Home</NavLink>
-            
 
             {props.user ?
                     <>
@@ -33,4 +33,4 @@ const Header = (props) => {
         </header>
     )
 }
-export default Header
+export default Header;
