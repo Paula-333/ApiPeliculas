@@ -69,7 +69,7 @@ class Home extends Component {
 
     irPelicula(datos){
         localStorage.setItem('datosPelicula', JSON.stringify(datos));
-        this.props.history.push('/peliculaDescripcion1');
+        this.props.history.push('/peliculaBuscar');
 
     };
 
@@ -107,9 +107,10 @@ class Home extends Component {
         return(
             <Fragment> 
                <div> <img src={foto.photo} alt="cinema" className="foto"/></div> 
-                 <FormSearch getDatosResults={this.getDatosResults}/>
+                 
                <div className="div-movies">
                 <button className="anterior" onClick={()=> this.backPage()}>ANTERIOR</button>
+                <FormSearch getDatosResults={this.getDatosResults}/>
                 <button className="siguiente" onClick={()=> this.nextPage()}>SIGUIENTE</button>
                 </div>
                <div className="movies" >{this.mostrarPeliculas()}</div>

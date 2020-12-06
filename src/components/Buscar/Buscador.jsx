@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import axios from 'axios'
+import './Buscador.css'
 
 class FormSearch extends Component {
 
@@ -85,7 +86,7 @@ class FormSearch extends Component {
                         onChange={this.handleChange}
                         value={this.state.search}
                         />
-                        <button type="submit" className="estilo-boton">Buscar</button>
+                        <button type="submit" className="buscar">Buscar</button>
                     </form>
                 </div>
         )}

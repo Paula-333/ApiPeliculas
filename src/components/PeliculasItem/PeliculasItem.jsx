@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/alt-text */
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import './PeliculasItem.css';
 
 
@@ -25,6 +25,9 @@ class PeliculasItem extends Component {
     goBack(){
         this.props.history.push('/');
     }
+    rentButton(){
+        this.props.history.push('/alquilar');
+    }
 
     datosPeli(){
         if(this.state.pelicula?.id){
@@ -32,9 +35,11 @@ class PeliculasItem extends Component {
                 <div className="peli">
                      
                     <img className="imagen" alt={this.state.pelicula.title} src= { `https://image.tmdb.org/t/p/w300${this.state.pelicula.poster_path}`}  ></img>
-                    <div className="titulo"> {this.state.pelicula.title} </div>
+                   <div  className="peli2">
+                   <div className="titulo"> {this.state.pelicula.title} </div>
                     <div className="Fecha"><p>Fecha de estreno: {this.state.pelicula.release_date} </p></div>
                     <div className="descripcion"> {this.state.pelicula.overview} </div>
+                   </div>
                  
                         
                         
@@ -50,12 +55,19 @@ class PeliculasItem extends Component {
     
     render() {
         return(
-            <div className="movie">
+           <Fragment>
+                <div className="movie">
                 {this.datosPeli()}
-                <button className="atras" onClick={()=>this.goBack()}>ATRAS</button>
-            </div>
-        );
-    };
+                </div>
+                <div className="botones
+                " >
+                    <button className="atras" onClick={()=>this.goBack()}>ATRAS</button>
+                    <button className="alquilar" onClick={()=>this.rentButton()}>ALQUILAR</button>
+                </div>
+        
+           </Fragment>
+        )
+    }
     
     
 };
