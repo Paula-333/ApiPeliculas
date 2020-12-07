@@ -9,7 +9,7 @@ import Register from './containers/Register/Register';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Alquilar from './containers/Alquilar/Alquilar';
-import Logout from './Components/Logout/Logout';
+//import Logout from './Components/Logout/Logout';
 
 
 
@@ -34,7 +34,7 @@ function App() {
         <Route path="/peliculaDescripcion" exact component={PeliculasItem} />
         <Route path="/peliculaBuscar" exact component={PeliculasItem} />
         <Route path="/register" component={Register} exact/>
-        <Route path="/logout" component={Logout} exact/>
+       
         <Route path="/login" children={<Login user={user} setUser={setUser}/>} 
         exact/>
       </Switch>

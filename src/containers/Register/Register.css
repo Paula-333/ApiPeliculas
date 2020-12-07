@@ -4,6 +4,8 @@
     border-radius: 2.5em;
     height: 150px;
     width: 200px;
+    margin-top: 5em;
+    margin-left: 30em;
     background-color: #b57cffcb;
     display: flex;
     flex-direction: column;

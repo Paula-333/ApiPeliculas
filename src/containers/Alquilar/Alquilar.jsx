@@ -9,10 +9,13 @@ const Alquilar = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const form = event.target;
+            //const form = event.target;
             const rent = {
-                name: form.name.value,
-                movieId: form.movieId.value,
+                name: event.target.name.value,
+                title: event.target.title.value,
+                createdAt: event.target.date.value,
+                //returnDate: event.target.returnDate.value,
+
             }
             const proxyurl = "https://cors-anywhere.herokuapp.com/";
             const url = "https://heroku-moviesbackend.herokuapp.com/order/createOrder"
@@ -21,15 +24,18 @@ const Alquilar = () => {
             history.push('/home')
         } catch (error) {
             console.log({message: 'ERROR'})
+            console.log(error)
+
         }
 
     }
 
     return (
         <form className="rent" onSubmit={handleSubmit}>
-            <h1>Alquila aqui!</h1>
-            <input type="text" name="name" placeholder="Nombre" />
-            <input type="text" name="movie" placeholder="Pelicula" />
+            <h2>Introduce tus datos </h2>
+            <input type="name" name="name" placeholder="Nombre" />
+            <input type="title" name="title" placeholder="Pelicula" />
+            <input type="date" name="date" placeholder="Fecha" />
             <button type="submit">Alquilar</button>
         </form>
     )
