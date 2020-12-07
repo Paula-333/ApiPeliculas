@@ -59,8 +59,7 @@ class PeliculasItem extends Component {
                 <div className="movie">
                 {this.datosPeli()}
                 </div>
-                <div className="botones
-                " >
+                <div className="botones" >
                     <button className="atras" onClick={()=>this.goBack()}>ATRAS</button>
                     <button className="alquilar" onClick={()=>this.rentButton()}>ALQUILAR</button>
                 </div>

@@ -11,11 +11,13 @@ const Login = (props) => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const res = await axios.post('https://heroku-moviesbackend.herokuapp.com/user/login', {email,password})
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            const url = "https://heroku-moviesbackend.herokuapp.com/user/login"
+            const res = await axios.post(proxyurl + url, {email,password})
             localStorage.setItem('token',res.data.token)
             
             props.setUser(res.data.user)
-            history.push('/peliculas')
+            history.push('/')
         } catch (error) {
             console.log('ERROR')
            

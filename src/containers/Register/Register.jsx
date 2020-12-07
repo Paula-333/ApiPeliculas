@@ -16,7 +16,9 @@ const Register = () => {
                 email: form.email.value,
                 password: form.password.value,
             }
-            await axios.post('https://heroku-moviesbackend.herokuapp.com/user/createUser',user)
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            const url = "https://heroku-moviesbackend.herokuapp.com/user/createUser"
+            await axios.post(proxyurl + url,user)
             console.log({message: 'Registrado'})
             history.push('/login')
         } catch (error) {

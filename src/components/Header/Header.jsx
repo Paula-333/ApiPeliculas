@@ -12,7 +12,6 @@ const Header = (props) => {
     return (
         <header className="header">
             <NavLink to="/" className="home1">Home</NavLink>
-
             {props.user ?
                     <>
                         <span className="email">{props.user?.email}</span>
@@ -28,8 +27,6 @@ const Header = (props) => {
                     </>
                     
                 }
-               
-            
         </header>
     )
 }

@@ -5,8 +5,6 @@
     height: 150px;
     width: 200px;
     background-color: #b57cffcb;
-    margin-top: 5em;
-    margin-left: 30em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
