@@ -12,9 +12,8 @@ const Alquilar = () => {
             //const form = event.target;
             const rent = {
                 name: event.target.name.value,
-                title: event.target.title.value,
+                movieId: event.target.title.value,
                 createdAt: event.target.date.value,
-                //returnDate: event.target.returnDate.value,
 
             }
             const proxyurl = "https://cors-anywhere.herokuapp.com/";
