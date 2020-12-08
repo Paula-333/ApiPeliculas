@@ -20,7 +20,7 @@ const Alquilar = () => {
             const url = "https://heroku-moviesbackend.herokuapp.com/order/createOrder"
             await axios.post(proxyurl + url, rent)
             console.log({message: 'Alquiler correcto'})
-            history.push('/home')
+            history.push('/rent')
         } catch (error) {
             console.log({message: 'ERROR'})
             console.log(error)

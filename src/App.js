@@ -9,6 +9,7 @@ import Register from './containers/Register/Register';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Alquilar from './containers/Alquilar/Alquilar';
+import Rent from './Components/Rent/Rent'
 //import Logout from './Components/Logout/Logout';
 
 
@@ -21,7 +22,7 @@ function App() {
     const token = localStorage.getItem('token');
     if(token){
 
-      axios.get('http://localhost:3001/users/profile',{headers:{Authorization:token}})
+      axios.get('http://localhost:3001',{headers:{Authorization:token}})
       .then(res=>setUser(res.data))
     }
   }, [])
@@ -31,10 +32,10 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact/>
         <Route path="/alquilar" component={Alquilar} exact/>
+        <Route path="/alquilar" component={Rent} exact/>
         <Route path="/peliculaDescripcion" exact component={PeliculasItem} />
         <Route path="/peliculaBuscar" exact component={PeliculasItem} />
         <Route path="/register" component={Register} exact/>
-       
         <Route path="/login" children={<Login user={user} setUser={setUser}/>} 
         exact/>
       </Switch>

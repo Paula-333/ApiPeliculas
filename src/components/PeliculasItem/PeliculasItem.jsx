@@ -26,7 +26,7 @@ class PeliculasItem extends Component {
         this.props.history.push('/');
     }
     rentButton(){
-        this.props.history.push('/alquilar');
+        this.props.history.push('/register');
     }
 
     datosPeli(){

@@ -17,21 +17,24 @@ const Login = (props) => {
             localStorage.setItem('token',res.data.token)
             
             props.setUser(res.data.user)
-            history.push('/')
+            history.push('/alquilar')
         } catch (error) {
             console.log('ERROR')
            
         }
-    
+
+      
+
     }
     return (
         <form className="Login" onSubmit={handleSubmit}>
             <h1 className="Log">¡Login!</h1>
             <input type="email" onChange={event=>setEmail(event.target.value)} name="email" placeholder="Email" value={email} className="input-1"/>
             <input type="password" onChange={event=>setPassword(event.target.value)} name="password" placeholder="Contraseña" value={password} className="input-1"/>
+            
             <button type="submit" className="button">Login</button>
         </form>
     )
 }
 
-export default Login 
+export default Login;
