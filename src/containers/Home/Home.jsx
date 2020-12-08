@@ -4,13 +4,7 @@ import './Home.css';
 import axios from 'axios';
 import FormSearch from "../../Components/Buscar/Buscador";
 
-
-
-
-
 let foto = {photo:'./movieTime.jpg'}
-
-
 
 class Home extends Component {
     constructor (props) {
@@ -36,9 +30,7 @@ class Home extends Component {
         }catch (err){
             console.log(err);
         }
-        
-        
-        
+          
     }
 
     mostrarPeliculas(){
@@ -60,7 +52,6 @@ class Home extends Component {
         }   
     }
 
-
     selecionarPelicula(pelicula){
         
         this.props.history.push('/peliculaDescripcion');
@@ -73,15 +64,10 @@ class Home extends Component {
 
     };
 
-
-
     nextPage = () =>{
         this.setState(prevState => ({page: prevState.page + 1}), ()=>{
             this.componentDidMount(this.state.page)  
         })    
-   
-
-       
     };
     
     backPage = () => {
@@ -92,7 +78,7 @@ class Home extends Component {
 
     //Obtengo los datos de FormSearch para pasarle el estado a Results
     getDatosResults = datos => {
-        //obtengo los datos de FormSeach en el fetch
+
         const dataResults =  datos 
             this.setState({
                 dataResults,
@@ -101,7 +87,6 @@ class Home extends Component {
         this.irPelicula(datos);
 
         }
-
     
     render() {
         return(

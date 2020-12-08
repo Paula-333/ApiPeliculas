@@ -7,7 +7,9 @@ import { useHistory } from 'react-router-dom';
 const Register = () => {
     
     const history = useHistory();
+
     const handleSubmit = async (event) => {
+
         try {
             event.preventDefault();
             const form = event.target;

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios'
-import './Alquilar.css'
+import axios from 'axios';
+import './Alquilar.css';
 
 const Alquilar = () => {
     

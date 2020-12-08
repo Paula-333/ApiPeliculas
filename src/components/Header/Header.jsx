@@ -1,10 +1,10 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import './Header.css'
+import './Header.css';
 
 
-const Header = (props) => {
+const Header = () => {
       
     return (
         <header className="header">

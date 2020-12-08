@@ -32,12 +32,11 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact/>
         <Route path="/alquilar" component={Alquilar} exact/>
-        <Route path="/alquilar" component={Rent} exact/>
+        <Route path="/rent" component={Rent} exact/>
         <Route path="/peliculaDescripcion" exact component={PeliculasItem} />
         <Route path="/peliculaBuscar" exact component={PeliculasItem} />
         <Route path="/register" component={Register} exact/>
-        <Route path="/login" children={<Login user={user} setUser={setUser}/>} 
-        exact/>
+        <Route path="/login" children={<Login user={user} setUser={setUser}/>} exact/>
       </Switch>
     </BrowserRouter>
   );

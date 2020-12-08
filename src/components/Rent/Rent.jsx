@@ -1,25 +1,28 @@
-import React, { Component, Fragment } from 'react';
-import './Rent.css'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import './Rent.css';
 
-class Rent extends Component{
-
-   logout = (props)=>{
-        localStorage.removeItem('token')
-         props.setUser(null)
+const Rent = (props) => {
+    
+    const history = useHistory();
+   const logout = ()=>{
+        localStorage.clear();
+        history.push("/");
     }
 
-    render(){
+    
         return(
-            <Fragment className="Fragment">
+            <div className="Fragment">
                 <div className="alquiler">
                 ¡YA HAS ALQUILADO LA PELICULA!
+                <br></br>
                 Recuerda que el plazo maximo que tienes para verla son 7 dias. 
                 </div>
-                <button className="logout" onClick={this.logout()}>ALQUILAR</button>
-            </Fragment>
+               <button onClick={logout} className="logout">LOGOUT</button>
+            </div>
             
         )
-    }
+    
 }
 
 export default Rent;
